@@ -1,7 +1,7 @@
 {
   "name": "@abhishekzambare/react-grid-dnd",
   "description": "grid style drag and drop for react",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Abhishek Zambare",
   "license": "MIT",
   "private": false,
