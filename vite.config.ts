@@ -2,7 +2,8 @@ import { defineConfig, esmExternalRequirePlugin } from "vite";
 import react, { reactCompilerPreset } from "@vitejs/plugin-react";
 import babel from "@rolldown/plugin-babel";
 import { resolve } from "node:path";
-import dts from "vite-plugin-dts";
+import dts from "unplugin-dts/vite";
+
 // https://vite.dev/config/
 export default defineConfig({
   resolve: {
@@ -26,7 +27,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    dts({ tsconfigPath: "./tsconfig.app.json" }),
+    dts({ bundleTypes: true, tsconfigPath: "./tsconfig.app.json" }),
     babel({ presets: [reactCompilerPreset()] }),
   ],
 });
