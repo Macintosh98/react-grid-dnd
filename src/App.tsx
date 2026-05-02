@@ -1,14 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from "react";
-import { storiesOf } from "@storybook/react";
 import {
-  GridContext,
   GridDropZone,
   GridContextProvider,
   swap,
-  move
-} from "../src";
-
-import { GridItem } from "../src/GridItem";
+  move,
+  GridItem,
+} from "@abhishekzambare/react-grid-dnd";
 
 interface AppState {
   [key: string]: Array<{
@@ -18,7 +16,7 @@ interface AppState {
 }
 
 function DragBetweenExample({ single }: any) {
-  const [mounted, setMounted] = React.useState(false);
+  // const [mounted, setMounted] = React.useState(false);
   const [items, setItems] = React.useState<AppState>({
     left: [
       { id: 1, name: "ben" },
@@ -26,7 +24,7 @@ function DragBetweenExample({ single }: any) {
       { id: 3, name: "jason" },
       { id: 4, name: "chris" },
       { id: 5, name: "heather" },
-      { id: 6, name: "Richard" }
+      { id: 6, name: "Richard" },
     ],
     right: [
       { id: 7, name: "george" },
@@ -34,40 +32,40 @@ function DragBetweenExample({ single }: any) {
       { id: 9, name: "alice" },
       { id: 10, name: "katherine" },
       { id: 11, name: "pam" },
-      { id: 12, name: "katie" }
+      { id: 12, name: "katie" },
     ],
-    dock: [{ id: 13, name: "Whatever" }]
+    dock: [{ id: 13, name: "Whatever" }],
   });
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      setMounted(true);
-    }, 500);
-  }, []);
+  // React.useEffect(() => {
+  //   setTimeout(() => {
+  //     setMounted(true);
+  //   }, 500);
+  // }, []);
   function onChange(
     sourceId: any,
     sourceIndex: number,
     targetIndex: number,
-    targetId?: string
+    targetId?: string,
   ) {
     if (targetId) {
       const result = move(
         items[sourceId],
         items[targetId],
         sourceIndex,
-        targetIndex
+        targetIndex,
       );
       return setItems({
         ...items,
         [sourceId]: result[0],
-        [targetId]: result[1]
+        [targetId]: result[1],
       });
     }
 
     const result = swap(items[sourceId], sourceIndex, targetIndex);
     return setItems({
       ...items,
-      [sourceId]: result
+      [sourceId]: result,
     });
   }
 
@@ -76,16 +74,16 @@ function DragBetweenExample({ single }: any) {
       <div
         style={{
           display: "flex",
-          touchAction: "none"
+          touchAction: "none",
         }}
       >
         <div
           style={{
-            transform: mounted ? `translateX(-100px)` : `translateX(0)`,
-            transition: "transform 0.25s ease",
+            // transform: mounted ? `translateX(-100px)` : `translateX(0)`,
+            // transition: "transform 0.25s ease",
             width: "600px",
-            display: "flex",
-            border: "1px solid blue"
+            // display: "flex",
+            border: "1px solid blue",
           }}
         >
           <GridDropZone
@@ -96,20 +94,20 @@ function DragBetweenExample({ single }: any) {
               border: "1px solid #bbb",
               borderRadius: "1rem",
               marginRight: "10px",
-              touchAction: "none"
+              touchAction: "none",
             }}
             id="left"
             boxesPerRow={4}
             rowHeight={70}
           >
-            {items.left.map(item => (
+            {items.left.map((item) => (
               <GridItem key={item.name}>
                 <div
                   style={{
                     padding: "10px",
                     width: "100%",
                     height: "100%",
-                    boxSizing: "border-box"
+                    boxSizing: "border-box",
                   }}
                 >
                   <div
@@ -123,7 +121,7 @@ function DragBetweenExample({ single }: any) {
                       color: "white",
                       fontFamily: "helvetica",
                       alignItems: "center",
-                      borderRadius: "50%"
+                      borderRadius: "50%",
                     }}
                   >
                     {item.name[0].toUpperCase()}
@@ -143,13 +141,13 @@ function DragBetweenExample({ single }: any) {
                 border: "1px solid #bbb",
                 borderRadius: "1rem",
                 marginLeft: "10px",
-                touchAction: "none"
+                touchAction: "none",
               }}
               id="right"
               boxesPerRow={4}
               rowHeight={70}
             >
-              {items.right.map(item => (
+              {items.right.map((item) => (
                 <GridItem key={item.name}>
                   {(Component: any, props: any) => (
                     <Component {...props}>
@@ -158,7 +156,7 @@ function DragBetweenExample({ single }: any) {
                           padding: "10px",
                           width: "100%",
                           height: "100%",
-                          boxSizing: "border-box"
+                          boxSizing: "border-box",
                         }}
                       >
                         <div
@@ -172,7 +170,7 @@ function DragBetweenExample({ single }: any) {
                             color: "white",
                             fontFamily: "helvetica",
                             alignItems: "center",
-                            borderRadius: "50%"
+                            borderRadius: "50%",
                           }}
                         >
                           {item.name[0].toUpperCase()}
@@ -195,20 +193,20 @@ function DragBetweenExample({ single }: any) {
           border: "1px solid red",
           borderRadius: "1rem",
           marginRight: "10px",
-          touchAction: "none"
+          touchAction: "none",
         }}
         id="dock"
         boxesPerRow={4}
         rowHeight={70}
       >
-        {items.dock.map(item => (
+        {items.dock.map((item) => (
           <GridItem key={item.name}>
             <div
               style={{
                 padding: "10px",
                 width: "100%",
                 height: "100%",
-                boxSizing: "border-box"
+                boxSizing: "border-box",
               }}
             >
               <div
@@ -222,7 +220,7 @@ function DragBetweenExample({ single }: any) {
                   color: "white",
                   fontFamily: "helvetica",
                   alignItems: "center",
-                  borderRadius: "50%"
+                  borderRadius: "50%",
                 }}
               >
                 {item.name[0].toUpperCase()}
@@ -235,38 +233,26 @@ function DragBetweenExample({ single }: any) {
   );
 }
 
-storiesOf("Hello", module)
-  .add("Drag between", () => <DragBetweenExample />)
-  .add("single", () => {
-    return <DragBetweenExample single />;
-  })
-  .add("supports parents transforming", () => (
-    <div>
-      <TransformExample />
-    </div>
-  ))
-  .add("readme example", () => <ReadmeExample />);
+// function TransformExample() {
+//   const [transform, setTransform] = React.useState(false);
 
-function TransformExample() {
-  const [transform, setTransform] = React.useState(false);
+//   React.useEffect(() => {
+//     setTimeout(() => {
+//       setTransform(true);
+//     }, 2000);
+//   }, []);
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      setTransform(true);
-    }, 2000);
-  }, []);
-
-  return (
-    <div
-      style={{
-        transform: transform ? "translateX(-30%)" : "translateX(0)",
-        transition: "transform 0.25s ease"
-      }}
-    >
-      <DragBetweenExample />
-    </div>
-  );
-}
+//   return (
+//     <div
+//       style={{
+//         transform: transform ? "translateX(-30%)" : "translateX(0)",
+//         transition: "transform 0.25s ease",
+//       }}
+//     >
+//       <DragBetweenExample />
+//     </div>
+//   );
+// }
 
 function ReadmeExample() {
   const [items, setItems] = React.useState([1, 2, 3, 4]); // supply your own state
@@ -276,8 +262,9 @@ function ReadmeExample() {
     sourceId: any,
     sourceIndex: any,
     targetIndex: any,
-    targetId: any
+    targetId: any,
   ) {
+    console.log(sourceId, targetId);
     const nextState = swap(items, sourceIndex, targetIndex);
     setItems(nextState);
   }
@@ -295,7 +282,7 @@ function ReadmeExample() {
             <div
               style={{
                 width: "100%",
-                height: "100%"
+                height: "100%",
               }}
             >
               {item}
@@ -306,3 +293,16 @@ function ReadmeExample() {
     </GridContextProvider>
   );
 }
+
+function App() {
+  return (
+    <>
+      {/* <DragBetweenExample /> */}
+      <DragBetweenExample single />
+      {/* <TransformExample /> */}
+      <ReadmeExample />
+    </>
+  );
+}
+
+export default App;

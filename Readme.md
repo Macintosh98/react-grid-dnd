@@ -36,7 +36,7 @@ import {
   GridContextProvider,
   GridDropZone,
   GridItem,
-  swap
+  swap,
 } from "react-grid-dnd";
 
 function Example() {
@@ -56,12 +56,12 @@ function Example() {
         rowHeight={100}
         style={{ height: "400px" }}
       >
-        {items.map(item => (
+        {items.map((item) => (
           <GridItem key={item}>
             <div
               style={{
                 width: "100%",
-                height: "100%"
+                height: "100%",
               }}
             >
               {item}
@@ -84,7 +84,7 @@ import {
   GridDropZone,
   GridItem,
   swap,
-  move
+  move,
 } from "react-grid-dnd";
 
 function App() {
@@ -95,7 +95,7 @@ function App() {
       { id: 3, name: "jason" },
       { id: 4, name: "chris" },
       { id: 5, name: "heather" },
-      { id: 6, name: "Richard" }
+      { id: 6, name: "Richard" },
     ],
     right: [
       { id: 7, name: "george" },
@@ -103,8 +103,8 @@ function App() {
       { id: 9, name: "alice" },
       { id: 10, name: "katherine" },
       { id: 11, name: "pam" },
-      { id: 12, name: "katie" }
-    ]
+      { id: 12, name: "katie" },
+    ],
   });
 
   function onChange(sourceId, sourceIndex, targetIndex, targetId) {
@@ -113,19 +113,19 @@ function App() {
         items[sourceId],
         items[targetId],
         sourceIndex,
-        targetIndex
+        targetIndex,
       );
       return setItems({
         ...items,
         [sourceId]: result[0],
-        [targetId]: result[1]
+        [targetId]: result[1],
       });
     }
 
     const result = swap(items[sourceId], sourceIndex, targetIndex);
     return setItems({
       ...items,
-      [sourceId]: result
+      [sourceId]: result,
     });
   }
 
@@ -138,7 +138,7 @@ function App() {
           boxesPerRow={4}
           rowHeight={70}
         >
-          {items.left.map(item => (
+          {items.left.map((item) => (
             <GridItem key={item.name}>
               <div className="grid-item">
                 <div className="grid-item-content">
@@ -154,7 +154,7 @@ function App() {
           boxesPerRow={4}
           rowHeight={70}
         >
-          {items.right.map(item => (
+          {items.right.map((item) => (
             <GridItem key={item.name}>
               <div className="grid-item">
                 <div className="grid-item-content">
