@@ -1,7 +1,7 @@
 {
   "name": "@abhishekzambare/react-grid-dnd",
   "description": "grid style drag and drop for react",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "Abhishek Zambare",
   "license": "MIT",
   "private": false,
@@ -46,7 +46,7 @@
   "devDependencies": {
     "@babel/core": "^8.0.1",
     "@eslint/js": "^10.0.1",
-    "@microsoft/api-extractor": "^7.58.9",
+    "@microsoft/api-extractor": "^7.58.10",
     "@rolldown/plugin-babel": "^0.2.3",
     "@types/babel__core": "^7.20.5",
     "@types/node": "^26.1.1",
@@ -64,7 +64,7 @@
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "typescript": "~7.0.2",
-    "typescript-eslint": "^8.63.0",
+    "typescript-eslint": "^8.64.0",
     "unplugin-dts": "^1.0.3",
     "vite": "^8.1.4",
     "vite-plugin-checker": "^0.14.4"
