@@ -1,7 +1,7 @@
 {
   "name": "@abhishekzambare/react-grid-dnd",
   "description": "grid style drag and drop for react",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "author": "Abhishek Zambare",
   "license": "MIT",
   "private": false,
@@ -16,12 +16,12 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/react-grid-dnd.umd.cjs",
+  "main": "./dist/react-grid-dnd.cjs",
   "module": "./dist/react-grid-dnd.js",
   "exports": {
     ".": {
       "import": "./dist/react-grid-dnd.js",
-      "require": "./dist/react-grid-dnd.umd.cjs"
+      "require": "./dist/react-grid-dnd.cjs"
     }
   },
   "homepage": "https://github.com/Macintosh98/react-grid-dnd",
@@ -38,12 +38,10 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "devDependencies": {
     "motion": "^12.42.2",
     "resize-observer-polyfill": "^1.5.1",
-    "uuid": "^14.0.1"
-  },
-  "devDependencies": {
+    "uuid": "^14.0.1",
     "@babel/core": "^8.0.1",
     "@eslint/js": "^10.0.1",
     "@microsoft/api-extractor": "^7.58.10",
@@ -71,6 +69,7 @@
   },
   "peerDependencies": {
     "react": "^19",
-    "react-dom": "^19"
+    "react-dom": "^19",
+    "motion": "^12"
   }
 }

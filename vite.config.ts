@@ -6,7 +6,7 @@ import dts from "unplugin-dts/vite";
 import checker from "vite-plugin-checker";
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   base: "/", // for vercel dployee
   server: {
     port: 3000,
@@ -20,9 +20,10 @@ export default defineConfig({
       name: "ReactGridDnD",
       // the proper extensions will be added
       fileName: "react-grid-dnd",
-      formats: ["es"],
+      formats: ["es", "cjs"],
     },
     rolldownOptions: {
+      external: ["react", "react-dom", "motion"],
       plugins: [
         esmExternalRequirePlugin({
           external: [/^react(-dom)?(\/.+)?$/],
@@ -33,17 +34,18 @@ export default defineConfig({
   plugins: [
     react(),
     dts({ bundleTypes: true, tsconfigPath: "./tsconfig.app.json" }),
-    babel({ presets: [reactCompilerPreset()] }),
-    checker({
-      typescript: {
-        buildMode: true,
-        tsconfigPath: "./tsconfig.app.json",
-      },
-      eslint: {
-        useFlatConfig: true,
-        watchPath: "./src/**/*.{js,jsx,ts,tsx}",
-        lintCommand: 'eslint "./src/**/*.{js,jsx,ts,tsx}"',
-      },
-    }),
+    mode === "development" && babel({ presets: [reactCompilerPreset()] }),
+    mode === "development" &&
+      checker({
+        typescript: {
+          buildMode: true,
+          tsconfigPath: "./tsconfig.app.json",
+        },
+        eslint: {
+          useFlatConfig: true,
+          watchPath: "./src/**/*.{js,jsx,ts,tsx}",
+          lintCommand: 'eslint "./src/**/*.{js,jsx,ts,tsx}"',
+        },
+      }),
   ],
-});
+}));
