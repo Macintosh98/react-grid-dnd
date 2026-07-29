@@ -1,75 +1,80 @@
 {
-  "name": "@abhishekzambare/react-grid-dnd",
-  "description": "grid style drag and drop for react",
-  "version": "0.0.11",
-  "author": "Abhishek Zambare",
-  "license": "MIT",
-  "private": false,
-  "keywords": [
-    "react",
-    "gesture",
-    "drag and drop",
-    "dnd",
-    "grid"
-  ],
-  "type": "module",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/react-grid-dnd.cjs",
-  "module": "./dist/react-grid-dnd.js",
-  "exports": {
-    ".": {
-      "import": "./dist/react-grid-dnd.js",
-      "require": "./dist/react-grid-dnd.cjs"
+    "name": "@abhishekzambare/react-grid-dnd",
+    "description": "grid style drag and drop for react",
+    "version": "0.0.12",
+    "author": "Abhishek Zambare",
+    "license": "MIT",
+    "private": false,
+    "keywords": [
+        "react",
+        "gesture",
+        "drag and drop",
+        "dnd",
+        "grid"
+    ],
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/react-grid-dnd.cjs",
+    "module": "./dist/react-grid-dnd.js",
+    "exports": {
+        ".": {
+            "import": "./dist/react-grid-dnd.js",
+            "require": "./dist/react-grid-dnd.cjs"
+        }
+    },
+    "homepage": "https://github.com/Macintosh98/react-grid-dnd",
+    "bugs": {
+        "url": "https://github.com/Macintosh98/react-grid-dnd/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Macintosh98/react-grid-dnd.git"
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc -b && vite build",
+        "lint": "eslint .",
+        "lint:fix": "eslint --fix .",
+        "format": "prettier --check . --config ./.prettierrc.json",
+        "format:fix": "prettier --write . --config ./.prettierrc.json",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "@babel/core": "^8.0.1",
+        "@eslint/js": "^10.0.1",
+        "@microsoft/api-extractor": "^7.58.12",
+        "@rolldown/plugin-babel": "^0.2.3",
+        "@types/babel__core": "^7.20.5",
+        "@types/node": "^26.1.2",
+        "@types/react": "^19.2.17",
+        "@types/react-dom": "^19.2.3",
+        "@typescript/typescript6": "^6.0.2",
+        "@vitejs/plugin-react": "^6.0.4",
+        "babel-plugin-react-compiler": "^1.0.0",
+        "eslint": "^10.8.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.6",
+        "eslint-plugin-react-hooks": "^7.1.1",
+        "eslint-plugin-react-refresh": "^0.5.3",
+        "globals": "^17.8.0",
+        "motion": "^12.43.0",
+        "prettier": "^3.9.6",
+        "react": "^19.2.8",
+        "react-dom": "^19.2.8",
+        "resize-observer-polyfill": "^1.5.1",
+        "rolldown": "^1.2.1",
+        "typescript": "^6.0.3",
+        "typescript-eslint": "^8.65.0",
+        "unplugin-dts": "^1.0.3",
+        "uuid": "^14.0.1",
+        "vite": "^8.1.5",
+        "vite-plugin-checker": "^0.14.5"
+    },
+    "peerDependencies": {
+        "motion": "^12",
+        "react": "^19",
+        "react-dom": "^19"
     }
-  },
-  "homepage": "https://github.com/Macintosh98/react-grid-dnd",
-  "bugs": {
-    "url": "https://github.com/Macintosh98/react-grid-dnd/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Macintosh98/react-grid-dnd.git"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "motion": "^12.42.2",
-    "resize-observer-polyfill": "^1.5.1",
-    "uuid": "^14.0.1",
-    "@babel/core": "^8.0.1",
-    "@eslint/js": "^10.0.1",
-    "@microsoft/api-extractor": "^7.58.10",
-    "@rolldown/plugin-babel": "^0.2.3",
-    "@types/babel__core": "^7.20.5",
-    "@types/node": "^26.1.1",
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
-    "@typescript/typescript6": "^6.0.2",
-    "@vitejs/plugin-react": "^6.0.3",
-    "babel-plugin-react-compiler": "^1.0.0",
-    "eslint": "^10.7.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.6",
-    "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-react-refresh": "^0.5.3",
-    "globals": "^17.7.0",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "typescript": "~7.0.2",
-    "typescript-eslint": "^8.64.0",
-    "unplugin-dts": "^1.0.3",
-    "vite": "^8.1.4",
-    "vite-plugin-checker": "^0.14.4"
-  },
-  "peerDependencies": {
-    "react": "^19",
-    "react-dom": "^19",
-    "motion": "^12"
-  }
 }
